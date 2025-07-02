@@ -1,0 +1,251 @@
+<!DOCTYPE html>
+
+<html lang="zxx">
+
+{%extends 'header_footer.html'%}
+{%block content%}
+    {% load static %}
+
+
+
+
+
+
+
+<body>
+
+    <!-- Page Preloder -->
+
+    
+
+    
+
+
+
+
+
+    <!-- Header End -->
+
+
+
+    <!-- Breadcrumb Section Begin -->
+
+   <section class="breadcrumb-section set-bg" data-setbg="{% static 'img/breadcrumb/classes-breadcrumb.jpg' %}">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="breadcrumb-text">
+
+                        <h2>About</h2>
+
+                        <div class="breadcrumb-option">
+
+                            <a href="/index/"><I class="fa fa-home"></I> Home</a>
+
+                            <span>About</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Breadcrumb Section End -->
+
+
+
+    <!-- About Section Begin -->
+
+    <section class="about-section about-page spad">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-6">
+
+                    <div class="about-pic">
+
+                       <img src="{% static 'img/about-pic.jpg' %}" alt="">
+
+                        <a href="https://www.youtube.com/watch?v=SlPhMPnQ58k" >
+
+                           
+
+                        </a>
+
+                    </div>
+
+                </div>
+
+                <div class="col-lg-6">
+
+                    <div class="about-text">
+
+                        <h2>Story About Us</h2>
+
+                        <p class="first-para">Our journey began with a simple idea: everyone deserves clear, science-backed guidance to 
+                            ive healthier lives. Born from a passion for fitness and fueled by the latest nutrition research, FitMentor 
+                            blends personalized workout plans, clean-eating meal guides, and real-time health tracking into one seamless
+                             experience. We understand that no two bodies—or lifestyles—are the same, so our platform adapts to your age,
+                              weight, height, BMI, and any medical considerations you share. Whether you’re taking your first step on the
+                               path to wellness or chasing a new personal best, FitMentor is your committed partner, offering tailored 
+                               routines, balanced nutrition, and gentle reminders to hydrate and recover. Together, we’re redefining what
+                                it means to train smarter, eat cleaner, and feel stronger every day.</p>
+
+                       
+
+                        <img src="{% static 'img/about-signature.png' %}" alt="">
+
+                        <div class="at-author">
+
+                            <h4>Lettie Chavez</h4>
+
+                            <span>CEO - Founder</span>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- About Section End -->
+
+
+
+    <!-- About Counter Section Begin -->
+
+    <div class="about-counter">
+
+        <div class="container">
+
+            <div class="row">
+
+                <div class="col-lg-12">
+
+                    <div class="about-counter-text">
+
+                        <div class="single-counter">
+                            <h1 class="counter-num count">{{ user_count }}</h1>
+                            <p>Members</p>
+                        </div>
+
+                        <div class="single-counter">
+                            <h1 class="counter-num count">{{ feedback_count }}</h1>
+                            <p>Feedbacks</p>
+                        </div>
+
+                    
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+    <style>.about-counter {
+  /* if you have a gradient bg on this section, keep it here */
+  /* e.g. background: linear-gradient(135deg, #f63, #e53); */
+  padding: 60px 0;
+}
+
+.about-counter-text {
+  display: flex;
+  justify-content: center;  /* center horizontally */
+  align-items: center;      /* center vertically */
+  gap: 80px;                /* space between each counter */
+  text-align: center;       /* center text inside each counter */
+}
+
+.single-counter {
+  /* optional: give them equal width, or let content size them */
+  flex: 0 0 auto;
+}
+
+.counter-num {
+  font-size: 4rem;
+  margin: 0;
+  line-height: 1;
+}
+
+.single-counter p {
+  margin: 0;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+  font-size: 1rem;
+}
+
+</style>
+
+    <!-- About Counter Section End -->
+
+
+
+    <!-- Gym Award Section Begin -->
+
+    
+    <!-- Gym Award Section End -->
+
+
+
+    <!-- Banner Section Begin -->
+
+
+
+    <!-- Banner Section End -->
+
+
+
+    <!-- Trainer Section Begin -->
+
+
+    <!-- Trainer Section End -->
+
+
+
+    
+
+    <!-- Footer Section End -->
+
+
+
+    <!-- Js Plugins -->
+
+<script src="{% static 'js/jquery-3.3.1.min.js' %}"></script>
+
+<script src="{% static 'js/bootstrap.min.js' %}"></script>
+
+<script src="{% static 'js/jquery.magnific-popup.min.js' %}"></script>
+
+<script src="{% static 'js/mixitup.min.js' %}"></script>
+
+<script src="{% static 'js/jquery.slicknav.js' %}"></script>
+
+<script src="{% static 'js/owl.carousel.min.js' %}"></script>
+
+<script src="{% static 'js/main.js' %}"></script>
+
+</body>
+
+{%endblock%}
+
+</html>

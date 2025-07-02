@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Leave Feedback | FitMentor</title>
+
+  <!-- Tailwind CSS CDN for utility classes -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <style>
+    @import url('https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700&display=swap');
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dumbbell-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 40px;
+      opacity: 0.05;
+      animation: move 60s linear infinite;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      white-space: pre-line;
+      text-align: center;
+    }
+
+    @keyframes move {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+
+    .feedback-container {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+      width: 100%;
+      max-width: 380px;
+      backdrop-filter: blur(8px);
+      z-index: 1;
+      color: #fff;
+    }
+
+    .feedback-container h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #10a37f;
+    }
+
+    .feedback-form textarea {
+      width: 100%;
+      min-height: 120px;
+      padding: 12px;
+      margin-bottom: 16px;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #000 !important;
+      color: #fff !important;
+      resize: vertical;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    .feedback-form textarea:focus {
+      outline: none;
+      border-color: #10a37f;
+    }
+
+    .submit-btn {
+      width: 100%;
+      padding: 14px;
+      border: none;
+      border-radius: 8px;
+      background: #10a37f;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .submit-btn:hover {
+      background: #0e8a6a;
+      transform: translateY(-2px);
+    }
+
+    .success-message {
+      text-align: center;
+      margin-bottom: 16px;
+      color: #4ade80;
+      font-weight: 500;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <div class="feedback-container">
+      <h2>Feedback</h2>
+      {% if feedback_sent %}
+        <div class="success-message">
+          ✅ Feedback sent successfully!
+        </div>
+      {% endif %}
+      <form class="feedback-form" method="POST" action="/feedback/">
+        {% csrf_token %}
+        <textarea name="feedback" class="feedback-textarea" placeholder="Enter your feedback, suggestions or comments here..."></textarea>
+        <button type="submit" class="submit-btn">Submit Feedback</button>
+      </form>
+      <div style="text-align: center; margin-top: 16px;">
+      <a href="/index/" style="color: #10a37f; text-decoration: underline;">
+        ← Back to Home
+      </a>
+    </div>
+    </div>
+  </main>
+</body>
+</html>

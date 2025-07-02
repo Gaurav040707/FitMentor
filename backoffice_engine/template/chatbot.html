@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>FitMentor ChatBot</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    html, body {
+      height: 100%;
+      font-family: 'Poppins', sans-serif;
+      background-color: #1e1e2f;
+      color: #f5f5f5;
+      overflow: hidden;
+    }
+
+    body {
+      display: flex;
+    }
+
+    .sidebar {
+      width: 250px;
+      background-color: #101020;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border-right: 1px solid #333;
+    }
+
+    .sidebar h2 {
+      font-size: 18px;
+      margin-bottom: 20px;
+      color: #10a37f;
+    }
+
+    .sidebar button {
+      background-color: #10a37f;
+      border: none;
+      padding: 10px;
+      color: white;
+      font-weight: 600;
+      border-radius: 6px;
+      cursor: pointer;
+      margin-bottom: 20px;
+      transition: background 0.3s;
+      width: 100%;
+    }
+
+    .sidebar button:hover {
+      background-color: #0e8a6a;
+    }
+
+    .chat-history {
+      flex-grow: 1;
+      overflow-y: auto;
+      margin-top: 10px;
+    }
+
+    .chat-history li {
+      padding: 10px;
+      font-size: 14px;
+      border-bottom: 1px solid #333;
+      cursor: pointer;
+    }
+
+    .chat-history li:hover {
+      background-color: #2a2a3b;
+    }
+
+    .main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 20px 30px;
+      overflow: hidden;
+    }
+
+    .chat-box {
+      flex-grow: 1;
+      overflow-y: auto;
+      padding-right: 10px;
+      margin-bottom: 20px;
+    }
+
+    .chat-message {
+      margin-bottom: 20px;
+      padding: 16px;
+      border-radius: 10px;
+      line-height: 1.6;
+      max-width: 75%;
+    }
+
+    .user {
+      align-self: flex-end;
+      background-color: #10a37f;
+      color: white;
+    }
+
+    .bot {
+      align-self: flex-start;
+      background-color: #2a2a3b;
+      color: #eee;
+    }
+
+    .message-wrapper {
+      display: flex;
+      flex-direction: column;
+    }
+
+    form {
+      display: flex;
+      gap: 10px;
+    }
+
+    input[type="text"] {
+      flex: 1;
+      padding: 14px;
+      border-radius: 8px;
+      border: none;
+      background-color: #2a2a3b;
+      color: #fff;
+    }
+
+    input:focus {
+      outline: none;
+      border: 1px solid #10a37f;
+    }
+
+    button[type="submit"] {
+      padding: 14px 20px;
+      background-color: #10a37f;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    button[type="submit"]:hover {
+      background-color: #0e8a6a;
+    }
+
+    .footer {
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      margin-top: 30px;
+    }
+    .sidebar .delete-btn {
+  margin-left: 10px;
+  padding: 6px 12px;
+  background-color: #ff4d4d;
+  border: none;
+  border-radius: 5px;
+  color: white;
+  font-size: 12px;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.sidebar .delete-btn:hover {
+  background-color: #e04444;
+}
+
+.sidebar .conv-link {
+  color: #10a37f;
+  text-decoration: none;
+}
+.signup-btn {
+  margin-left: 20px;
+  background-color: #10a37f;
+  color: white;
+  padding: 10px 20px;
+  border-radius: 6px;
+  font-weight: bold;
+
+  </style>
+</head>
+<body>
+<div class="sidebar">
+  <h2>FitMentor</h2>
+  <button onclick="location.href='{% url 'new_chat' %}'">New Chat</button>
+  <button onclick="location.href='/index/'">Home</button>
+<ul class="chat-history">
+  {% for conv in conversations %}
+    <li>
+      <!-- Conversation link -->
+      <a href="{% url 'chatbot_conv' conv.id %}" class="conv-link">
+        {{ conv.title|default:conv.created_at|date:"M d, Y H:i" }}
+      </a>
+
+      <!-- Delete form -->
+      <form action="{% url 'delete_conversation' conv.id %}"
+            method="POST" style="display:inline;">
+        {% csrf_token %}
+        <button type="submit" class="delete-btn">
+          Delete
+        </button>
+      </form>
+    </li>
+  {% endfor %}
+</ul>
+</div>
+
+
+<div class="main">
+  <div class="chat-box">
+    {% for chat in chat_history %}
+      <div class="message-wrapper">
+        <div class="chat-message user"><strong>You:</strong> {{ chat.message }}</div>
+        <div class="chat-message bot"><strong>Bot:</strong> {{ chat.response }}</div>
+      </div>
+    {% empty %}
+      <p>No messages in this conversation yet.</p>
+    {% endfor %}
+  </div>
+
+  <form method="POST">
+    {% csrf_token %}
+    <input type="text" name="message" placeholder="Type your message..." required>
+    <button type="submit">Send</button>
+  </form>
+</div>
+</body>
+</html>
