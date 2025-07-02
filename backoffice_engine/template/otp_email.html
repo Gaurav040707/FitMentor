@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>FitMentor OTP Verification</title>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #f4f4f4;
+      margin: 0; padding: 0;
+    }
+    .container {
+      max-width: 480px;
+      margin: 40px auto;
+      background: #fff;
+      border-radius: 8px;
+      overflow: hidden;
+      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    }
+    .header {
+      background: #10a37f;
+      color: #fff;
+      padding: 20px;
+      text-align: center;
+    }
+    .header h1 { margin: 0; font-size: 24px; }
+    .body {
+      padding: 30px 20px;
+      text-align: center;
+    }
+    .otp-code {
+      display: inline-block;
+      font-size: 32px;
+      letter-spacing: 6px;
+      margin: 20px 0;
+      color: #333;
+      font-weight: 600;
+      background: #f0f0f0;
+      padding: 10px 20px;
+      border-radius: 6px;
+    }
+    .footer {
+      background: #fafafa;
+      color: #666;
+      font-size: 12px;
+      padding: 15px 20px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="header">
+      <h1>FitMentor OTP</h1>
+    </div>
+    <div class="body">
+      <p>Hi there,</p>
+      <p>Use the following One-Time Password to reset your FitMentor account password:</p>
+      <div class="otp-code">{{ otp }}</div>
+      <p>This OTP will expire in 10 minutes.</p>
+      <p>If you didn't request this, you can safely ignore this email.</p>
+    </div>
+    <div class="footer">
+      © 2025 FitMentor. All rights reserved.
+    </div>
+  </div>
+</body>
+</html>

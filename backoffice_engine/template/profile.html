@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Profile | FitMentor</title>
+  <style>
+    /* (keep your existing body, dumbbell-bg, keyframes, etc.) */
+
+    .profile-sections {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;    /* expand overall wrapper if needed */
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      position: relative;
+      overflow: hidden;
+    }
+ body {
+      font-family: 'Poppins', sans-serif;
+      height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #fff;
+      background: linear-gradient(135deg, #0f2027, #203a43, #2c5364);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .dumbbell-bg {
+      position: absolute;
+      top: 0;
+      left: 0;
+      font-size: 40px;
+      opacity: 0.05;
+      animation: move 60s linear infinite;
+      width: 100%;
+      height: 100%;
+      display: grid;
+      place-items: center;
+      pointer-events: none;
+      white-space: pre-line;
+      text-align: center;
+    }
+  .page-title {
+  position: absolute;    /* stick it to the viewport */
+  top: 20px;             /* adjust vertical offset */
+  left: 50%;
+  transform: translateX(-50%);
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #10a37f;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  z-index: 2;             /* sit above the background */
+  margin: 0;
+}
+
+
+
+    @keyframes move {
+      0% { transform: translateY(0); }
+      100% { transform: translateY(-100%); }
+    }
+
+    .auth-container {
+      background: rgba(0, 0, 0, 0.8);
+      padding: 40px 30px;
+      border-radius: 16px;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+      width: 100%;
+      max-width: 380px;
+      backdrop-filter: blur(8px);
+      z-index: 1;
+    }
+
+    .auth-form {
+      display: block;
+      opacity: 1;
+    }
+
+    h2 {
+      text-align: center;
+      margin-bottom: 24px;
+      font-weight: 600;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+    }
+
+    input {
+      width: 100%;
+      padding: 14px 16px;
+      margin: 12px 0;
+      border: 1px solid #333;
+      border-radius: 8px;
+      background: #222;
+      color: #eee;
+      font-size: 15px;
+      transition: border-color 0.3s;
+    }
+
+    input:focus {
+      outline: none;
+      border-color: #10a37f;
+    }
+
+    button {
+      width: 100%;
+      padding: 14px;
+      margin-top: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #10a37f;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    button:hover {
+      background: #0e8a6a;
+      transform: translateY(-2px);
+    }
+
+    .switch-link {
+      text-align: center;
+      margin-top: 18px;
+      font-size: 14px;
+    }
+
+    .switch-link a {
+      color: #fff;
+      text-decoration: underline;
+      cursor: pointer;
+      transition: color 0.3s;
+    }
+
+    .switch-link a:hover { color: #bbb; }
+
+.profile-sections {
+  display: flex;
+  flex-wrap: nowrap;            /* ← never wrap to the next line */
+  gap: 24px;
+  justify-content: center;
+  width: 100%;
+  max-width: 1000px;
+  margin: 0 auto;
+  z-index: 1;
+  position: relative;
+}
+
+.profile-box {
+  background: rgba(0, 0, 0, 0.8);
+  padding: 40px 32px;
+  border-radius: 16px;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.7);
+  flex: 0 0 calc(50% - 12px);   /* ← each box takes about half the container */
+  max-width: calc(50% - 12px);  /* ← caps the width so two always fit */
+  backdrop-filter: blur(8px);
+  color: #fff;
+}
+
+
+    .info-row {
+      margin: 12px 0;
+      font-size: 15px;
+    }
+
+    .info-label {
+      font-weight: 500;
+      color: #ccc;
+    }
+
+    .info-value {
+      margin-left: 8px;
+      font-weight: 600;
+      color: #fff;
+    }
+
+    .profile-box button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 16px;
+      border: none;
+      border-radius: 8px;
+      background: #10a37f;
+      color: white;
+      font-weight: 600;
+      text-transform: uppercase;
+      cursor: pointer;
+      transition: background 0.3s, transform 0.2s;
+    }
+
+    .profile-box button:hover {
+      background: #0e8a6a;
+      transform: translateY(-2px);
+    }
+
+    .delete-button {
+  background: red !important;
+  color: white;
+}
+
+.delete-button:hover {
+  background: darkred !important;
+}
+
+
+
+    .footer {
+      position: absolute;
+      bottom: 30px;
+      width: 100%;
+      text-align: center;
+      font-size: 12px;
+      color: #aaa;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="dumbbell-bg">
+    🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 🏋‍♀ 🏋‍♂ 
+  </div>
+  <h1 class="page-title">Profile🕵🏼</h1>
+
+  <div class="profile-sections">
+    <!-- Box 1: Account Info -->
+    <div class="profile-box">
+      <h2>Account Info</h2>
+      <div class="info-row">
+        <span class="info-label">Name:</span>
+        <span class="info-value">{{ user.name }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Email:</span>
+        <span class="info-value">{{ user.email }}</span>
+      </div>
+      <div class="info-row">
+        <span class="info-label">Password:</span>
+        <span class="info-value">**********</span>
+      </div>
+
+      <button type="button" onclick="location.href='/update/{{ user.id }}'">
+        Update Profile
+      </button>
+      <button type="button" onclick="location.href='/logout/'">
+        Logout
+      </button>
+      <button
+        type="button"
+        class="delete-button"
+        onclick="location.href='/delete_account/{{ user.id }}'">
+        Delete Account
+      </button>
+      <div style="text-align: center; margin-top: 16px;">
+      <a href="/index/" style="color: #10a37f; text-decoration: underline;">
+        ← Back to Home
+      </a>
+    </div>
+    </div>
+
+    <!-- Box 2: Health Data -->
+    <div class="profile-box">
+      <h2>Health Details</h2>
+      {% if health %}
+        <div class="info-row">
+          <span class="info-label">Age:</span>
+          <span class="info-value">{{ health.age }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Gender:</span>
+          <span class="info-value">{{ health.gender }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Weight:</span>
+          <span class="info-value">{{ health.weight }} kg</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Height:</span>
+          <span class="info-value">{{ health.height }} cm</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">BMI:</span>
+          <span class="info-value">{{ health.bmi }}</span>
+        </div>
+        <div class="info-row">
+          <span class="info-label">Medical Conditions:</span>
+          <span class="info-value">{{ health.medical_conditions|default:"None" }}</span>
+        </div>
+        <button type="button" onclick="location.href='/bmi/'">
+          Update Health Data
+        </button>
+        <button type="button" onclick="location.href='/chatbot/'">
+          Chat With FitMentor
+        </button>
+      {% else %}
+        <p>No health data found. Please enter it.</p>
+        <button type="button" onclick="location.href='/bmi/'">
+          Enter Health Data
+        </button>
+      {% endif %}
+    </div>
+  </div>
+  
+
+  <div class="footer">
+    © 2025 <strong>FitMentor</strong> | All rights reserved
+  </div>
+</body>
+</html>
